@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Arkademy - Agustin Parmaini</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-lg-1"><img src="assets/img/logo.png"  height="75px" width="100px"></div>
+        <div class="col-lg-8"><br><h2>ARKADEMY BOOTCAMP</h2></div>
+    </div>
+</div>
+    <br>
+    <br>
+    <p>
+    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalAdd" style="float: right;">ADD</button>
+    <br>
+    <table id="mytable" class="table table-bordered">
+        <thead>       
+            <th>cashier</th>       
+            <th>product</th>       
+            <th>category</th>       
+            <th>price</th>  
+			<th>action</th>  
+        </thead> 
+        <tr>       
+            <td>Pevita Pearce</td>
+            <td>Latte</td>     
+            <td>Drink</td> 
+			<td>Rp. 10.000</td>	
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>                
+            </td>   
+        </tr>
+        <tr>       
+            <td>Raisa Andriana</td>
+            <td>Cake</td>     
+            <td>Food</td> 
+			<td>Rp. 15.000</td>	    
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>     
+            </td> 
+        </tr>
+        <tr>       
+            <td>Raisa Andriana</td>
+            <td>Fried Rice</td>     
+            <td>Food</td> 
+			<td>Rp. 30.000</td>	    
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>     
+            </td>
+        </tr>
+        <tr>       
+            <td>Pevita Pearce</td>
+            <td>Gudeg</td>     
+            <td>Food</td> 
+			<td>Rp. 35.000</td>	   
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>     
+            </td> 
+        </tr>
+		<tr>       
+            <td>Joko Purwadhi</td>
+            <td>Ice tea</td>     
+            <td>Drink</td> 
+			<td>Rp. 55.000</td>	   
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>     
+            </td> 
+        </tr>
+		<tr>       
+            <td>Agustin Parmaini</td>
+            <td>Tiramisu</td>     
+            <td>Food</td> 
+			<td>Rp. 45.000</td>	   
+            <td>
+                <button type="button" class="btn btn-default btn-md" onclick="hapus()"><i class="fa fa-trash fa-sm"></i></button>
+                <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-edit fa-sm"></i></button>     
+            </td> 
+        </tr>
+    </table>
+</div>
+<div id="modalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">ADD DATA</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nameInput" placeholder="Name..." name="nama">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="productSelect" name="produk">
+                            <option value="">product</option>
+                            <option value="Latte">Latte</option>
+                            <option value="Cake">Cake</option>
+							<option value="Fried Rice">Fried Rice</option>
+							<option value="Gudeg">Gudeg</option>
+							<option value="Ice tea">Ice tea</option>
+							<option value="Tiramisu">Tiramisu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="categorySelect" name="kategori">
+                            <option>Category</option>
+                            <option>Food</option>
+                            <option>Drink</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-md" onclick="tambah()">ADD</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT DATA</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nameInput" value="Pevita Pearce" name="nama">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="productSelect" name="produk">
+                            <option value="Latte">Latte</option>
+                            <option value="Cake">Cake</option>
+							<option value="Fried Rice">Fried Rice</option>
+							<option value="Gudeg">Gudeg</option>
+							<option value="Ice Tea">Ice Tea</option>
+							<option value="Tiramisu">Tiramisu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="categorySelect" name="kategori">
+                            <option>Food</option>
+                            <option>Drink</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-md" onclick="edit()">EDIT DATA</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    function hapus()
+    {
+        swal("Berhasil!", "Data Berhasil dihapus!", "success");
+    }
+    function tambah()
+    {
+        swal("Berhasil!", "Data Berhasil ditambahkan!", "success");
+    }
+    function edit()
+    {
+        swal("Berhasil!", "Data Berhasil diubah!", "success");
+    }
+</script>
